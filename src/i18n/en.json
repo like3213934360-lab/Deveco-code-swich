@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "provider": "Provider",
+    "version": "Version",
+    "config": "Config",
+    "cost": "Cost",
+    "proxy": "Proxy",
+    "mcp": "MCP",
+    "skill": "Skill",
+    "health": "Health"
+  },
+  "provider": {
+    "title": "Provider Management",
+    "add": "+ Add Provider",
+    "cancel": "Cancel",
+    "switch": "Switch",
+    "test": "Test",
+    "testing": "Testing...",
+    "delete": "Delete",
+    "deleteConfirm": "Are you sure to delete this provider?",
+    "current": "Active",
+    "name": "Name",
+    "baseUrl": "Base URL",
+    "apiKey": "API Key (optional)",
+    "type": "Type",
+    "save": "Save",
+    "empty": "No providers yet. Click above to add one."
+  },
+  "version": {
+    "title": "Version Management",
+    "current": "Current Version",
+    "available": "Available Versions",
+    "install": "Install",
+    "installing": "Installing...",
+    "loading": "Loading...",
+    "notInstalled": "Not installed"
+  },
+  "config": {
+    "title": "Configuration Editor",
+    "save": "Save",
+    "saved": "Saved",
+    "loadError": "Load failed",
+    "saveError": "Save failed"
+  },
+  "cost": {
+    "title": "Cost Tracking",
+    "totalRequests": "Total Requests",
+    "inputTokens": "Input Tokens",
+    "outputTokens": "Output Tokens",
+    "totalCost": "Total Cost (CNY)",
+    "daily": "Daily Usage (Last 30 days)",
+    "date": "Date",
+    "requests": "Requests",
+    "input": "Input",
+    "output": "Output",
+    "fee": "Cost",
+    "noData": "No data"
+  },
+  "proxy": {
+    "title": "Local Proxy",
+    "start": "Start",
+    "stop": "Stop",
+    "running": "Running",
+    "stopped": "Stopped",
+    "startFailed": "Start failed",
+    "stopFailed": "Stop failed",
+    "listenAddr": "Listen Address",
+    "port": "Port",
+    "totalRequests": "Total Requests",
+    "activeProvider": "Active Provider",
+    "config": "Proxy Configuration",
+    "maxRetries": "Max Retries",
+    "nonStreamTimeout": "Non-streaming Timeout (s)",
+    "streamTimeout": "Streaming First Byte Timeout (s)",
+    "autoFailover": "Auto Failover",
+    "usage": "Usage Guide"
+  },
+  "mcp": {
+    "title": "MCP Servers",
+    "add": "+ Add",
+    "cancel": "Cancel",
+    "name": "Name",
+    "command": "Command",
+    "description": "Description (optional)",
+    "save": "Save",
+    "enable": "Enable",
+    "disable": "Disable",
+    "delete": "Delete",
+    "deleteConfirm": "Are you sure to delete this MCP server?",
+    "empty": "No MCP servers"
+  },
+  "skill": {
+    "title": "Skill Management",
+    "empty": "No skills installed",
+    "installHint": "Install",
+    "enable": "Enable",
+    "disable": "Disable",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "health": {
+    "title": "Health Monitor",
+    "refresh": "Refresh",
+    "checking": "Checking...",
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "down": "Down",
+    "unknown": "Unknown",
+    "empty": "No providers. Add one first."
+  },
+  "update": {
+    "newVersion": "New version available",
+    "recommend": "Update recommended for latest features and fixes",
+    "now": "Update Now",
+    "downloading": "Downloading...",
+    "later": "Later",
+    "failed": "Update failed"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "loading": "Loading..."
+  }
+}

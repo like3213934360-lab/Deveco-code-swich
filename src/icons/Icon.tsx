@@ -55,7 +55,7 @@ export default function Icon({ name, size = 20, className = '' }: IconProps) {
       width={size}
       height={size}
       className={`inline-block ${className}`}
-      style={{ filter: 'brightness(0) invert(1)' }}
+      style={{ filter: 'var(--icon-filter)' }}
     />
   )
 }
