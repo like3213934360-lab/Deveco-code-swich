@@ -1,5 +1,4 @@
 use serde::Serialize;
-use crate::services::config_service;
 
 #[derive(Debug, Serialize)]
 pub struct VersionInfo {
@@ -8,10 +7,15 @@ pub struct VersionInfo {
     pub is_current: bool,
 }
 
+fn shell_command(cmd: &str) -> tokio::process::Command {
+    let mut c = tokio::process::Command::new("/bin/zsh");
+    c.args(["-lc", cmd]);
+    c
+}
+
 #[tauri::command]
 pub async fn get_current_version() -> Result<String, String> {
-    let output = tokio::process::Command::new("deveco")
-        .arg("--version")
+    let output = shell_command("deveco --version")
         .output()
         .await
         .map_err(|e| format!("Failed to run deveco: {}", e))?;
@@ -25,8 +29,7 @@ pub async fn get_current_version() -> Result<String, String> {
 
 #[tauri::command]
 pub async fn list_available_versions() -> Result<Vec<VersionInfo>, String> {
-    let output = tokio::process::Command::new("npm")
-        .args(["view", "@deveco-test/deveco-code", "versions", "--json", "--registry=https://registry.npmjs.org"])
+    let output = shell_command("npm view @deveco-test/deveco-code versions --json --registry=https://registry.npmjs.org")
         .output()
         .await
         .map_err(|e| format!("Failed to query npm: {}", e))?;
@@ -54,15 +57,14 @@ pub async fn list_available_versions() -> Result<Vec<VersionInfo>, String> {
 
 #[tauri::command]
 pub async fn install_version(version: String) -> Result<String, String> {
-    let pkg = format!("@deveco-test/deveco-code@{}", version);
-    let output = tokio::process::Command::new("npm")
-        .args(["install", "-g", &pkg, "--registry=https://registry.npmjs.org"])
+    let cmd = format!("npm install -g @deveco-test/deveco-code@{} --registry=https://registry.npmjs.org", version);
+    let output = shell_command(&cmd)
         .output()
         .await
         .map_err(|e| format!("Failed to install: {}", e))?;
 
     if output.status.success() {
-        Ok(format!("Installed {}", pkg))
+        Ok(format!("Installed @deveco-test/deveco-code@{}", version))
     } else {
         Err(String::from_utf8_lossy(&output.stderr).to_string())
     }

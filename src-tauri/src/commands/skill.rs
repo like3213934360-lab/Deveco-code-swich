@@ -9,8 +9,9 @@ pub fn list_skills(db: State<DbState>) -> Result<Vec<Skill>, String> {
 
 #[tauri::command]
 pub async fn install_skill(repo: String, name: String) -> Result<String, String> {
-    let output = tokio::process::Command::new("npx")
-        .args(["skills", "add", &format!("{}/{}", repo, name)])
+    let cmd = format!("npx skills add {}/{}", repo, name);
+    let output = tokio::process::Command::new("/bin/zsh")
+        .args(["-lc", &cmd])
         .output()
         .await
         .map_err(|e| e.to_string())?;
